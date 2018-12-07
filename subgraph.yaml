@@ -1,0 +1,22 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CHANGE_ME
+    source:
+      address: ""
+      abi: CHANGE_ME
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.1
+      language: wasm/assemblyscript
+      file: ./src/CHANGE_ME.ts
+      abis:
+        - name: CHANGE_ME
+          file: ./abis/CHANGE_ME.json
+      entities:
+        - Transfer
+      eventHandlers:
+        - event: Transfer(address,address,uint256)
+          handler: transferHandler
